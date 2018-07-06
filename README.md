@@ -1,0 +1,2 @@
+# newsArticle
+NewsArticle in Backbone
