@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+		 <title>News</title>      
+		<!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+		<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+		<style>
+		
+			#newsList {			
+				font-family: Roboto;			
+				margin-left: 33%;
+				padding:10px;			
+			}  
+			
+			#header {
+				font-family: Roboto;
+				margin-left: 33%;
+				margin-top: 3%;
+				padding-left : 30px;
+			}
+		</style>	
+		
+	</head>	
+	
+	<body>
+		<header id="header">
+			<h1>News Around You</h1>
+		</header>
+		
+		<div id="homeItems" align="center">	</div>
+		<div id="news" >	</div>
+		
+		<div id="newsList">	</div>
+		
+		<script id="newsListItemTemplate" type="text/template">
+			<br><b>Title:</b> <a href="#desc" class ="title"><%= title %></a><br>
+			<b>Short Description:</b> <%= shortDescription %> <br>
+			<b>Author Name:</b> <%= authorName %> <br>
+			<b>Date:</b> <%= date %> <br>
+			<b>Status:</b> <%= isActive ? "Active" : "Inactive" %> <br>
+			<input type="button" class="editArticlebtn" value="Edit">
+			<input type="button" class="delArticlebtn" value="Delete">
+			<!-- <input type="button" class="statusCheck" value="Make <%= isActive ? "Inactive" : "Active" %>"> -->
+			<br>
+		</script>
+		
+		<script id="newsDescriptonTemplate" type="text/template">
+			<div><input type="submit" class="home" value="Home" > </div><br>
+			<b>Title:</b> <%= title %><br>
+			<b>Short Description:</b> <%= shortDescription %> <br>
+			<b>Detailed Description:</b> <%= fullDescription %> <br>
+			<b>Author Name:</b> <%= authorName %> <br>
+			<b>Date:</b> <%= date %> <br>
+			<b>Status:</b> <%= isActive ? "Active" : "Inactive" %> <br>
+			<input type="button" class="editArticlebtn" value="Edit">
+			<input type="button" class="delArticlebtn" value="Delete">
+			<!-- <input type="button" class="statusCheck" value="Make <%= isActive ? "Inactive" : "Active" %>"> -->
+			<br>
+		</script>
+		
+		<script id="homeItemTemplate" type="text/template">
+			<button class="addbtn" >click here to view Add Article</button><br>
+			<input type="text" class="srchVal" placeholder ="type here to search"> 					
+			<input type="submit" class="srchbtn" value="Search">
+		</script>
+		
+		<script id="createArticleTemplate" type="text/template">
+			
+			<div> 
+				<b>Title:</b><input type="text" class="title" value="<%= templateData.title %>"><br>
+				<b>Short Description:</b><input type="text" class="shrtDesc" value="<%= templateData.shortDescription %>">  <br>
+				<b>Detailed Description:</b> <input type="textarea" class="fullDesc" value="<%= templateData.fullDescription %>">  <br>
+				<b>Author Name:</b> <input type="text" class="Name" value="<%= templateData.authorName %>"> <br>
+				<b>Date:</b> <input type="text" class ="date" id="datepicker" value ="<%= templateData.date %>"><br>
+				<b>Status:</b>  <select class="myStatus">
+									<option value="true" <%= templateData.isActive  ? ' selected ' : '' %>>Active</option>
+									<option value="false" <%= templateData.isActive ? '' : ' selected ' %>>Inactive</option>
+								</select><br>
+				<br>
+				<input type="submit" <%= templateData.add ? ' class="addArticlebtn" value="Add Article" ' : ' class="updateArticlebtn" value="Update Article" ' %> >
+				<input type="submit" class="cancel" value="cancel" >
+				
+				
+			</div>
+		</script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="underscore-min.js"></script>
+        <script src="backbone-min.js"></script>
+		<script src="bootstrap.min.js"></script>
+		<script src="newsArticleJs.js"></script>
+		<!-- <script src="newsArticleJsBackup2.js"></script> -->
+		
+	</body>
+	
+</html>	
